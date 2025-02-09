@@ -44,9 +44,9 @@ for (let i = 0; i < ejemplos.length; i++) {
     let li = document.createElement("li");
     li.classList.add("dato-item");
 
-    li.innerHTML = `<strong>Valor:</strong> ${String(ejemplos[i])} <br>
-                    <strong>Tipo:</strong> ${dato} <br>
-                    <strong>Descripción:</strong> ${descripcionDato}`;                    
+    li.innerHTML = `<p><strong>Valor:</strong> ${String(ejemplos[i])}</p>
+                    <p><strong>Tipo:</strong> ${dato}</p>
+                    <p><strong>Descripción:</strong> ${descripcionDato}</p>`;                    
 
     ul.appendChild(li);
 
