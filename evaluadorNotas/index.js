@@ -13,19 +13,31 @@ function validarEntradaNota(input) {
   return true; 
 }
 
-let nota = Number(prompt("Ingrese la nota del alumno: "));
-
-if(validarEntradaNota(nota)){
-    if (nota >= 90 && nota <= 100) {
-        alert("Excelente");
-      } else if (nota >= 75 && nota <= 89) {
-        alert("Bien");
-      } else if (nota >= 60 && nota <= 74) {
-        alert("Suficiente");
-      } else {
-        alert("El estudiante no aprueba");
-      }
-} else {
-    alert("Algo salio mal, intenta nuevamente");
+function mostrarMensaje(mensaje){
+    const areaMensaje = document.getElementById('campo-mensaje');
+    areaMensaje.innerText = mensaje;
 }
+
+function evaluaNota(){
+    let nota = Number(document.getElementById("calificacion").value);
+    if(validarEntradaNota(nota)){
+        if (nota >= 90 && nota <= 100) {
+            mostrarMensaje("Excelente");
+          } else if (nota >= 75 && nota <= 89) {
+            mostrarMensaje("Bien");
+          } else if (nota >= 60 && nota <= 74) {
+            mostrarMensaje("Suficiente");
+          } else {
+            mostrarMensaje("El estudiante no aprueba");
+          }
+    } else {
+        mostrarMensaje("Algo salio mal, intenta nuevamente");
+    }
+        
+}
+
+const boton = document.getElementById('boton');
+boton.addEventListener('click', evaluaNota);
+
+
 
