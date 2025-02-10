@@ -19,7 +19,9 @@ function mostrarMensaje(mensaje){
 }
 
 function evaluaNota(){
-    let nota = Number(document.getElementById("calificacion").value);
+    let calificacionInput = document.getElementById("calificacion");
+    calificacionInput.classList.remove('error-input')
+    let nota = Number(calificacionInput.value);
     if(validarEntradaNota(nota)){
         if (nota >= 90 && nota <= 100) {
             mostrarMensaje("Excelente");
@@ -29,9 +31,11 @@ function evaluaNota(){
             mostrarMensaje("Suficiente");
           } else {
             mostrarMensaje("El estudiante no aprueba");
+            calificacionInput.classList.add('error-input');
           }
     } else {
-        mostrarMensaje("Algo salio mal, intenta nuevamente");
+        mostrarMensaje("Algo salio mal, intenta nuevamente con otra calificacion");
+        calificacionInput.classList.add('error-input');
     }
         
 }
