@@ -1,11 +1,3 @@
-/**
- * 
- *  Si la nota es 90 o más, el estudiante aprueba con "Excelente".
-    Si la nota está entre 75 y 89, el estudiante aprueba con "Bien".
-    Si la nota está entre 60 y 74, el estudiante aprueba con "Suficiente".
-    Si la nota es menor de 60, el estudiante no aprueba.
- */
-
 function validarEntradaNota(input) {
   if (isNaN(input) || input < 0 || input > 100) {
     return false;
@@ -13,33 +5,49 @@ function validarEntradaNota(input) {
   return true; 
 }
 
-function mostrarMensaje(mensaje){
-    const areaMensaje = document.getElementById('campo-mensaje');
-    areaMensaje.innerText = mensaje;
+function mostrarMensaje(elemento, mensaje){
+    elemento.innerText = mensaje;
 }
 
 function evaluaNota(){
     let calificacionInput = document.getElementById("calificacion");
-    calificacionInput.classList.remove('error-input')
-    let nota = Number(calificacionInput.value);
+
+    let nota = calificacionInput.value;
+    calificacionInput.classList.remove('error-input');
+    campoMensaje.className = ""
+    
     if(validarEntradaNota(nota)){
+        if(nota === ""){
+            mostrarMensaje(campoMensaje, "Por favor, ingresa una calificación entre 0 y 100.");
+            calificacionInput.classList.add("error-input");
+            campoMensaje.classList.add("no-input");
+            return;
+        }
+
+        nota = Number(nota);
+
         if (nota >= 90 && nota <= 100) {
-            mostrarMensaje("Excelente");
+            mostrarMensaje(campoMensaje, "Excelente");
+            campoMensaje.classList.add('excelente');
           } else if (nota >= 75 && nota <= 89) {
-            mostrarMensaje("Bien");
+            mostrarMensaje(campoMensaje, "Bien");
+            campoMensaje.classList.add('bien');
           } else if (nota >= 60 && nota <= 74) {
-            mostrarMensaje("Suficiente");
+            mostrarMensaje(campoMensaje, "Suficiente");
+            campoMensaje.classList.add('suficiente');
           } else {
-            mostrarMensaje("El estudiante no aprueba");
-            calificacionInput.classList.add('error-input');
+            mostrarMensaje(campoMensaje, "El estudiante no aprueba");
+            campoMensaje.classList.add('no-aprueba');
           }
     } else {
-        mostrarMensaje("Algo salio mal, intenta nuevamente con otra calificacion");
+        mostrarMensaje(campoMensaje, "Algo salio mal, intenta nuevamente con otra calificacion entre 0 y 100");
         calificacionInput.classList.add('error-input');
+        campoMensaje.classList.add('input-invalido');
     }
         
 }
 
+const campoMensaje = document.getElementById('campo-mensaje');
 const boton = document.getElementById('boton');
 boton.addEventListener('click', evaluaNota);
 

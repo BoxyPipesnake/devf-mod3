@@ -1,4 +1,96 @@
-.error-input {
-    border: 3px solid red; 
+body {
+    min-height: 80vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.contenedor-principal{
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenedor-input {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contenedor-input label {
     font-weight: bold;
+    font-size: 2rem;
+}
+
+.contenedor-input input {
+    padding: 0.7rem;
+    font-size: 1.2rem;
+}
+
+.contenedor-input button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+/*Estilos para el contenedor del mensaje*/
+
+
+.contenedor-mensaje p{
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+
+
+/*Estilos para el tipo de mensaje desplegado dependiendo de la calificacion*/
+
+.error-input {
+    border: 3px solid #ff0000; 
+    font-weight: bold;
+}
+
+.excelente {
+    background-color: #28a745;
+}
+
+.bien {
+    background-color: #ffc107;
+}
+
+.suficiente {
+    background-color: #fd7e14;
+}
+
+.no-aprueba{
+    background-color: #dc3545;
+}
+
+/* Para el campo donde se desplegará el mensaje no el elemento input*/
+.input-invalido { 
+    background-color: #6c757d;
+}
+
+.no-input {
+    background-color: #0000ff;
 }

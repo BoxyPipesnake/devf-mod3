@@ -9,15 +9,21 @@
 <body>
     <h1>Evaluador Notas</h1>
 
-    <label for="calificacion">Ingrese calificacion: </label>
-    <input type="number" min="0" max="100" id="calificacion">
-    <button type="button" id="boton">
-        Evalua tu nota
-    </button>
 
-    <div class="contenedor-mensaje">
-        <p id="campo-mensaje"></p>
-    </div>
+    <main class="contenedor-principal">
+        <div class="contenedor-input">
+            <label for="calificacion">Ingrese calificacion: </label>
+            <input type="number" min="0" max="100" id="calificacion">
+            <button type="button" id="boton">
+                Evalua tu nota
+            </button>
+        </div>
+        
+        <div class="contenedor-mensaje">
+            <p id="campo-mensaje"></p>
+        </div>
+    </main>
+    
 
     <script src="./index.js"></script>
 </body>
