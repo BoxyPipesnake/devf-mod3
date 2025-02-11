@@ -15,18 +15,20 @@ h1 {
     font-size: 2.5rem;
 }
 
+
 .contenedor-principal{
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 1rem;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
+} 
+
 
 .contenedor-input {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-self: center;
 }
 
 .contenedor-input label {
@@ -49,6 +51,7 @@ h1 {
 }
 
 /*Estilos para el contenedor del mensaje*/
+
 
 
 .contenedor-mensaje p{
