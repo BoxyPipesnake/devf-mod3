@@ -17,6 +17,7 @@ body {
 main {
     background-color: #fff;
     border-radius: 15px;
+    margin-top: 1rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
