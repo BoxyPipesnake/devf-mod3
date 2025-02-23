@@ -23,7 +23,6 @@ botonAñadir.addEventListener('click', () => {
         alert("No puedes añadir un comentario vacío");
     } else {
         añadirComentario(textoComentario);
-        contadorComentarios.textContent = ++numeroComentarios;
         document.getElementById('texto-comentario').value = "";
     }
 });
@@ -31,6 +30,13 @@ botonAñadir.addEventListener('click', () => {
 function añadirComentario(contenidoComentario){
     comentario = crearComentario(contenidoComentario);
     contenedorComentarios.appendChild(comentario);
+    contadorComentarios.textContent = ++numeroComentarios;
+}
+
+function eliminarComentario(event) {
+    const comentario = event.target.parentElement;
+    comentario.remove();
+    contadorComentarios.textContent = --numeroComentarios;
 }
 
 function crearComentario(contenidoComentario) {
@@ -39,14 +45,23 @@ function crearComentario(contenidoComentario) {
 
     const comentario = document.createElement("div");
 
-    // ahora.toLocaleDateString('en-GB') -> dd-mm-yyyy
     comentario.innerHTML = `
         <p>${contenidoComentario}</p>
         <p><span>Fecha: ${ahora.toLocaleDateString('en-GB')} - </span><span>Hora: ${tiempoFormateado}</span></p>
-        <button type="button">Eliminar Comentario</button>
     `;
+
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar Comentario";
+    botonEliminar.type = "button";
+    botonEliminar.classList.add("btn-eliminar");
+
+    botonEliminar.addEventListener("click", eliminarComentario);
+
+    comentario.appendChild(botonEliminar);
+
     return comentario;
 }
+
 
 function formatearHora(dateObj){
     let formateoHora = new Intl.DateTimeFormat("en-US", {
