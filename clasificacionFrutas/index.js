@@ -4,13 +4,13 @@
 const frutas = [
     { nombre: "manzana", clasificacion: "neutra" },
     { nombre: "plátano", clasificacion: "dulce" },
-    { nombre: "naranja", clasificacion: "ácida" },
-    { nombre: "uva", clasificacion: "semiácida" },
+    { nombre: "naranja", clasificacion: "acida" },
+    { nombre: "uva", clasificacion: "semiacida" },
     { nombre: "pera", clasificacion: "neutra" },
     { nombre: "manzana", clasificacion: "neutra" },
-    { nombre: "naranja", clasificacion: "ácida" },
+    { nombre: "naranja", clasificacion: "acida" },
     { nombre: "manzana", clasificacion: "neutra" },
-    { nombre: "uva", clasificacion: "semiácida" }
+    { nombre: "uva", clasificacion: "semiacida" }
 ];
 
 const cantidadFrutas = {};
@@ -26,20 +26,20 @@ for (let i = 0; i < frutas.length; i++) {
 
 console.log(cantidadFrutas);
 
-// Versión con while
-const cantidadFrutasWhile = {};
-let j = 0;
-while (j < frutas.length) {
-    let clasificacion = frutas[j].clasificacion;
-    if (cantidadFrutasWhile.hasOwnProperty(clasificacion)) {
-        cantidadFrutasWhile[clasificacion] += 1;
-    } else {
-        cantidadFrutasWhile[clasificacion] = 1;
-    }
-    j++;
-}
+// // Versión con while
+// const cantidadFrutasWhile = {};
+// let j = 0;
+// while (j < frutas.length) {
+//     let clasificacion = frutas[j].clasificacion;
+//     if (cantidadFrutasWhile.hasOwnProperty(clasificacion)) {
+//         cantidadFrutasWhile[clasificacion] += 1;
+//     } else {
+//         cantidadFrutasWhile[clasificacion] = 1;
+//     }
+//     j++;
+// }
 
-console.log(cantidadFrutasWhile);
+// console.log(cantidadFrutasWhile);
 
 
 
