@@ -13,13 +13,17 @@
 
 const botonAñadir = document.getElementById('boton-agregar');
 const contenedorComentarios = document.getElementById('contenedor-comentarios');
+const contadorComentarios = document.getElementById('contador-comentarios');
+let numeroComentarios = Number(contadorComentarios.textContent);
 
 botonAñadir.addEventListener('click', () => {
     let textoComentario = document.getElementById('texto-comentario').value;
-    if(textoComentario === ""){
-        alert("No puedes añadir un comentario vacio");
+    
+    if (textoComentario === "") {
+        alert("No puedes añadir un comentario vacío");
     } else {
         añadirComentario(textoComentario);
+        contadorComentarios.textContent = ++numeroComentarios;
         document.getElementById('texto-comentario').value = "";
     }
 });
