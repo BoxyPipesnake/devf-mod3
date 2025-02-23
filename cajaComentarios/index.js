@@ -9,3 +9,44 @@
 // Cuando el usuario haga clic en el botón, el comentario debe aparecer en la página debajo del formulario.
 // Los estudiantes pueden agregar un botón para eliminar comentarios si lo desean.
 // Los comentarios deben aparecer junto con la fecha y hora de publicación. (opcional)
+
+
+const botonAñadir = document.getElementById('boton-agregar');
+const contenedorComentarios = document.getElementById('contenedor-comentarios');
+
+botonAñadir.addEventListener('click', () => {
+    let textoComentario = document.getElementById('texto-comentario').value;
+    if(textoComentario === ""){
+        alert("No puedes añadir un comentario vacio");
+    } else {
+        añadirComentario(textoComentario);
+        document.getElementById('texto-comentario').value = "";
+    }
+});
+
+function añadirComentario(contenidoComentario){
+    comentario = crearComentario(contenidoComentario);
+    contenedorComentarios.appendChild(comentario);
+}
+
+function crearComentario(contenidoComentario) {
+    const ahora = new Date();
+    const fecha = ahora.toLocaleDateString('en-GB'); // dd-mm-yyyy
+
+    let formateoHora = new Intl.DateTimeFormat("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+    });
+
+    let tiempoFormateado = formateoHora.format(ahora);
+
+    let comentario = document.createElement("div");
+
+    comentario.innerHTML = `
+        <p>${contenidoComentario}</p>
+        <p><span>Fecha: ${fecha} - </span><span>Hora: ${tiempoFormateado}</span></p>
+        <button type="button">Eliminar Comentario</button>
+    `;
+    return comentario;
+}
