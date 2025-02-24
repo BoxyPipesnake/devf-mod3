@@ -46,8 +46,9 @@ function crearComentario(contenidoComentario) {
     const comentario = document.createElement("div");
 
     comentario.innerHTML = `
+        <h3>Anonimo</h3>
         <p>${contenidoComentario}</p>
-        <p><span>Fecha: ${ahora.toLocaleDateString('en-GB')} - </span><span>Hora: ${tiempoFormateado}</span></p>
+        <p><span><strong>Fecha:</strong> ${ahora.toLocaleDateString('en-GB')} - </span><span><strong>Hora:</strong> ${tiempoFormateado}</span></p>
     `;
 
     const botonEliminar = document.createElement("button");
