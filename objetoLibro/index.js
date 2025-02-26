@@ -31,9 +31,7 @@ const libro = {
     eliminarCapitulo: function(capitulo){
         if(this.capitulos.includes(capitulo)){
             const index = this.capitulos.indexOf(capitulo);
-            if (index > -1) { 
-                this.capitulos.splice(index, 1);
-              }
+            this.capitulos.splice(index, 1);
         } else {
             console.error("No hubo coincidencias.")
         }
@@ -43,4 +41,5 @@ const libro = {
 libro.agregarCapitulo("Cap6")
 libro.mostrarCapitulosLibro();
 libro.eliminarCapitulo("Cap8");
+libro.eliminarCapitulo("Cap1");
 libro.mostrarCapitulosLibro();
